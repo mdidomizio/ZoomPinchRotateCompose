@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ZoomPinchRotateTheme {
                 var scale by remember {
-                    mutableStateOf(1f)
+                    mutableStateOf(1.0f)
                 }
 
                 var rotation by remember {
