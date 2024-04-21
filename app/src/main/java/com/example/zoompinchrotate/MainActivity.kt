@@ -39,16 +39,17 @@ class MainActivity : ComponentActivity() {
                 BoxWithConstraints(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .aspectRatio(540f / 360f)
+                        .aspectRatio(1280f / 720f),
+
                 ) {
                     val state = rememberTransformableState {
                         zoomChange, panChange, rotationChange ->
-                        scale = (scale * zoomChange).coerceIn(0.8f, 1.5f)
+                        scale = (scale * zoomChange).coerceIn(1.0f, 5.0f)
 
-                        rotation += rotationChange
+                        /*rotation += rotationChange*/
 
-                        val extraWidth = (scale - 0.8f) * constraints.maxWidth
-                        val extraHeight = (scale - 0.8f)* constraints.maxHeight
+                        val extraWidth = (scale - 1.0f) * constraints.maxWidth
+                        val extraHeight = (scale - 1.0f)* constraints.maxHeight
 
                         val maxX = extraWidth / 2
                         val maxY = extraHeight / 2
@@ -66,7 +67,7 @@ class MainActivity : ComponentActivity() {
                             .graphicsLayer {
                                 scaleX = scale
                                 scaleY = scale
-                                rotationZ = rotation
+                                /*rotationZ = rotation*/
                                 translationX = offset.x
                                 translationY = offset.y
                             }
